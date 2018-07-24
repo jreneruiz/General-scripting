@@ -4,3 +4,4 @@ The purpose of this repository is to show scripts I did a long time ago and rece
 Repository | Description | Language
 ---- | ---- | ----
 [Label-printer](/Label-printer) | Zebra label printer script  | JAVA
+[Dont-close-kiosk-site](/Dont-close-kiosk-site) | Chrome kiosk mode site  | Batch
