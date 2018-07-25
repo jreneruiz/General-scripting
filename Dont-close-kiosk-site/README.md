@@ -14,7 +14,14 @@ There was a situation with some computers equipment that worked as information a
 As a note, it was difficult to navigate to another site since it was programmed as a single page application and navigating to another site used to be *almost* impossible.
 
 # Restrictions
-The Google Chrome browser had to be always in "kiosk" mode (more [here](https://superuser.com/questions/716426/running-latest-chrome-for-windows-in-kiosk-mode)), it is not allowed to use another application, than web browser with the internal information site.
+The Google Chrome browser had to be always in "kiosk" mode (see [here](https://superuser.com/questions/716426/running-latest-chrome-for-windows-in-kiosk-mode)), it is not allowed to use another application, than web browser with the internal information site.
 
 # Solution
 A batch file which starts with the os system, and monitored that the browser always it's open. Also the script file kills the explorer process to avoid the open of another application by the user.
+
+When the batch file starts opens a cmd window, to avoid this you only need to save this 3 lines of code in a vbscript file and start it instead of "ProcessAuditor.cmd", now the "ProcessAuditor.cmd" is in the disk (C:).
+```vbscript
+Set WshShell = CreateObject("WScript.Shell")
+WshShell.Run chr(34) & "C:ProcessAuditor.cmd" & Chr(34), 0
+Set WshShell = Nothing 
+```
