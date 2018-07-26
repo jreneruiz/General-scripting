@@ -5,3 +5,4 @@ Repository | Description | Language
 ---- | ---- | ----
 [Label-printer](/Label-printer) | Zebra label printer script  | JAVA
 [Dont-close-kiosk-site](/Dont-close-kiosk-site) | Chrome kiosk mode site  | Batch
+[Obtain-current-vendor](/Obtain-current-vendor) | Gets the raw material vendor based on purchase requisitions | Python
