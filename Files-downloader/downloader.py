@@ -1,19 +1,9 @@
 import requests
 import datetime as dt
-import pandas as pd
 from requests_ntlm import HttpNtlmAuth
-from datetime import datetime
 
 user = 'User-01'
 password = 'passW00rd'
-files_dictionary = {
-    "excs": {
-        'link': 'https://teams.organization.com/sharepoint/location a/excess report.xlsm',
-        'savein': 'C:/path/to/save/file/',
-        'newname': '',
-        'dateformat': '%Y-%m-%d'
-    }
-}
 
 
 def getfilename(link, date_format):
@@ -24,14 +14,30 @@ def getfilename(link, date_format):
     return data
 
 
-def download_file(data_dic):
-    df = pd.DataFrame(data=data_dic)
+def download_file(record):
     session = requests.Session()
     session.auth = HttpNtlmAuth(user, password)
-    r = session.get(df.excs.link)
-    df.excs.newname = getfilename(df.excs.link, df.excs.dateformat)
-    open(df.excs.savein + df.excs.newname, 'wb').write(r.content)
+    r = session.get(record.get('link'))
+    record['newname'] = getfilename(record['link'], record['dateformat'])
+    with open(record['savein'] + record['newname'], 'wb') as f:
+        f.write(r.content)
 
 
-download_file(files_dictionary)
+files_dictionary = [
+    {
+        'key': 'excs',
+        'link': 'https://teams.organization.com/sharepoint/location a/excess report.xlsm',
+        'savein': 'C:/path/to/save/file/',
+        'newname': '',
+        'dateformat': '%Y-%m-%d'
+    },
+    {
+        'key': 'excs2',
+        'link': 'https://teams.organization.com/sharepoint/location a/excess report2.xlsm',
+        'savein': 'C:/path/to/save/file2/',
+        'newname': '',
+        'dateformat': '%Y-%m-%d'
+    },
+]
 
+download_file(files_dictionary[0])
