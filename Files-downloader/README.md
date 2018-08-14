@@ -24,6 +24,6 @@ Actually this is a work in progress I'm going to update this script and their de
 # To-do
 - [x] Authenticate a user in orderd to download any file
 - [x] When the file is downladed, rename it to follow a standar name structure
+- [x] Use a single data dictionary to download the files
 - [ ] Identify when a file has already been downloaded
-- [ ] Capability to re-utilize code
-- [ ] Use a single data dictionary to download the files
+- [ ] Download multiple files at the same time
